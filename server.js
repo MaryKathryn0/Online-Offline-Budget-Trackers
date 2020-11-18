@@ -15,7 +15,7 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost/budget", {
+mongoose.connect(`mongodb+srv://wine123123:${prcoess.env.mongopass}@cluster0.wd44e.mongodb.net/<dbname>?retryWrites=true&w=majority`, {
   useNewUrlParser: true,
   useFindAndModify: false
 });
