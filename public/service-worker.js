@@ -21,9 +21,6 @@ self.addEventListener("install", function (evt) {
   );
 
 
-
-
-
   self.skipWaiting();
 });
 
@@ -52,15 +49,12 @@ self.addEventListener("fetch", function (evt) {
       caches.open(DATA_CACHE_NAME).then(cache => {
         return fetch(evt.request)
           .then(response => {
-      
             if (response.status === 200) {
               cache.put(evt.request.url, response.clone());
             }
-
             return response;
           })
           .catch(err => {
-        
             return cache.match(evt.request);
           });
       }).catch(err => console.log(err))
